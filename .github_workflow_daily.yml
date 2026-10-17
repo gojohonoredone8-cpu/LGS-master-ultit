@@ -1,0 +1,4 @@
+# Sunucunuz uyumuyorsa: .github/workflows/daily.yml olarak kaydedin. 03:00 UTC = 06:00 Europe/Istanbul
+name: daily
+on: {schedule: [{cron: "0 3 * * *"}], workflow_dispatch: {}}
+jobs: {ping: {runs-on: ubuntu-latest, steps: [{run: "curl -fsS --retry 3 https://SITENIZ.onrender.com/api/cron/${{ secrets.CRON_TOKEN }}"}]}}
